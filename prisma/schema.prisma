@@ -55,10 +55,3 @@ model DeliveryLogs {
 
   @@map("delivery_logs")
 }
-
-model Teste {
-  id    String @id @default(uuid())
-  title String
-
-  @@map("teste")
-}

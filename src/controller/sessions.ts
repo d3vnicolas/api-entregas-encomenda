@@ -32,7 +32,7 @@ class SessionsController {
     const token = sign({ role: user.role ?? "customer" }, secret, {
       subject: user.id,
       expiresIn,
-    })
+    } as any)
 
     const { password: hashedPassword, ...userWithoutPassword } = user
 

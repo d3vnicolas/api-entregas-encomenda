@@ -10,9 +10,10 @@ class UsersController {
       name: z.string().min(3).trim(),
       email: z.string().email(),
       password: z.string().min(6),
+      role: z.enum(["customer", "sale"]),
     })
 
-    const { name, email, password } = bodySchema.parse(request.body)
+    const { name, email, password, role } = bodySchema.parse(request.body)
     const userWithSameEmail = await prisma.user.findFirst({ where: { email } })
 
     if (userWithSameEmail) {
@@ -25,6 +26,7 @@ class UsersController {
         name,
         email,
         password: hashedPassword,
+        role,
       },
     })
 

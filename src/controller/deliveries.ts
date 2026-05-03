@@ -10,14 +10,14 @@ class DeliveriesController {
     })
 
     const { user_id: userId, description } = bodySchema.parse(request.body)
-    await prisma.delivery.create({
+    const delivery = await prisma.delivery.create({
       data: {
         userId,
         description,
       },
     })
 
-    return response.status(201).json()
+    return response.status(201).json({ id: delivery.id })
   }
 
   async index(request: Request, response: Response) {

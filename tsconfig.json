@@ -12,6 +12,9 @@
     "forceConsistentCasingInFileNames": true,
 
     "strict": true,
-    "skipDefaultLibCheck": true
+    "skipDefaultLibCheck": true,
+
+    "moduleResolution": "node16",
+    "types": ["node", "jest"]
   }
 }
